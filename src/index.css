@@ -1,0 +1,229 @@
+/* Import Font */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(#F5EEFF, #DAC3F8);
+}
+
+#root {
+  width: 100%;
+}
+
+/* ---------- Container Styling ---------- */
+.container {
+  position: relative;
+  margin: 0 auto;
+  z-index: 1;
+  overflow: hidden;
+  max-width: 410px;
+  border-radius: 10px;
+  background: linear-gradient(#352163, #33143C);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.container::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0.95;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  background: url("clouds.png");
+}
+
+/* ---------- Search Section ---------- */
+.search-section {
+  display: flex;
+  justify-content: center;
+  padding: 25px;
+}
+
+/* Search Form */
+.search-form {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 350px;
+  gap: 10px;
+}
+
+/* Input and Search Icon Wrapper */
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 6px;
+  overflow: hidden;
+  padding-left: 10px;
+}
+
+/* Search Icon */
+.search-icon {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Search Input */
+.search-input {
+  flex: 1;
+  height: 50px;
+  outline: none;
+  color: #fff;
+  font-size: 1rem;
+  text-transform: uppercase;
+  padding: 0 10px;
+  background: transparent;
+  border: none;
+}
+
+.search-input::placeholder {
+  color: #ddd;
+  text-transform: none;
+}
+
+/* Location Button */
+.location-button {
+  height: 50px;
+  width: 50px;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.location-button:hover {
+  background: rgba(255, 255, 255, 0.3);
+  color: #b39fdf;
+}
+
+/* ---------- Weather Section ---------- */
+.weather-section :where(h2, p) {
+  color: #fff;
+}
+
+.current-weather {
+  display: flex;
+  align-items: center;
+  padding: 20px 0 50px;
+  flex-direction: column;
+}
+
+.current-weather .weather-icon {
+  width: 140px;
+  aspect-ratio: 1;
+}
+
+.current-weather .temperature {
+  margin: 18px 0;
+  display: flex;
+  font-size: 3.38rem;
+}
+
+.current-weather .temperature span {
+  font-size: 1.56rem;
+  font-weight: 400;
+  margin: 5px 0 0 2px;
+}
+
+.current-weather .description {
+  font-size: 1.25rem;
+  text-align: center;
+  padding: 0 10px;
+}
+
+/* ---------- Hourly Forecast ---------- */
+.hourly-forecast {
+  padding: 16px 25px;
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.hourly-forecast .weather-list {
+  display: flex;
+  gap: 40px;
+  list-style: none;
+  overflow-x: auto;
+  padding-bottom: 16px;
+  margin-bottom: -16px;
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+
+.hourly-forecast:hover .weather-list {
+  scrollbar-color: #c5bcdb transparent;
+}
+
+.hourly-forecast .weather-item {
+  display: flex;
+  gap: 7px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hourly-forecast .weather-item .weather-icon {
+  width: 28px;
+  aspect-ratio: 1;
+}
+
+/* ---------- No Results Section ---------- */
+.no-results {
+  min-height: 460px;
+  display: flex;
+  color: #fff;
+  padding: 60px 40px 40px;
+  text-align: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.no-results .title {
+  margin: 25px 0 15px;
+}
+
+.no-results .message {
+  line-height: 23px;
+}
+
+/* ---------- Responsive Design ---------- */
+@media (max-width: 624px) {
+  body,
+  .search-section {
+    padding: 20px;
+  }
+
+  .hourly-forecast {
+    padding: 16px 20px;
+  }
+
+  .hourly-forecast .weather-list {
+    gap: 24px;
+  }
+
+  .no-results {
+    padding: 30px;
+    min-height: 458px;
+  }
+}
